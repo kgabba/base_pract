@@ -3,4 +3,4 @@
 2) проваливаемся через терминал в склонированную папку
 3) пишем: pip install -r ./requirements.txt
 4) пишем: python main.py
-5) в браузере открываем http://localhost:8000
+5) в браузере открываем http://localhost:8000/list
