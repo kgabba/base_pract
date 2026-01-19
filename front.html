@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Список сотрудников</h1>
+    <ul id="employee-list"></ul>
+
+    <script>
+        fetch('/api/employees')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('employee-list');
+
+                for (const [id, emp] of Object.entries(data)) {
+                    const li = document.createElement('li');
+
+                    // ссылка на фото
+                    const link = document.createElement('a');
+                    link.href = `/list/${id}`;
+                    link.textContent = `${emp.name} - ${emp.prof} (${emp.grade})`;
+                    link.target = "_blank"; // откроется в новой вкладке
+
+                    li.appendChild(link);
+                    list.appendChild(li);
+                }
+            });
+    </script>
+</body>
+</html>
